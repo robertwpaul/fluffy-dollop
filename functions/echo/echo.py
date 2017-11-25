@@ -1,8 +1,23 @@
+import json
+
 from lib import name
 
 
 def handle(event, context):
-    supplied_name = event['queryStringParameters'].get('name', None)
+    supplied_name = name_from_request(event)
     message_name = name.display_name(supplied_name)
     message = 'Hello {}'.format(message_name)
-    return {'message': message}
+    return {
+        'statusCode': 200,
+        'body': response_body(message)
+    }
+
+
+def name_from_request(event):
+    if not event['queryStringParameters']:
+        return None
+    return event['queryStringParameters'].get('name', None)
+
+
+def response_body(message):
+    return json.dumps({'message': message})

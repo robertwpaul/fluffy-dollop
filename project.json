@@ -1,6 +1,12 @@
 {
-  "name": "",
-  "description": "",
-  "role": "",
-  "memory": 1024
+  "name": "lambda test",
+  "nameTemplate": "{{.Function.Name}}",
+  "description": "Example project testing lambda deployment via Apex",
+  "role": "arn:aws:iam::885643343752:role/service-role/test-lambda-role",
+  "runtime": "python2.7",
+  "memory": 1024,
+  "hooks": {
+    "build": "cp -r ../../lib .",
+    "clean": "rm -rf lib"
+  }
 }

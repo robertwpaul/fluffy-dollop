@@ -1,3 +1,19 @@
 test:
   build: .
   command: py.test --pep8 --flakes
+
+deploy:
+  build: .
+  environment:
+    - AWS_ACCESS_KEY_ID
+    - AWS_SECRET_ACCESS_KEY
+    - AWS_REGION
+  command: apex deploy
+
+deploy-dry-run:
+  build: .
+  environment:
+    - AWS_ACCESS_KEY_ID
+    - AWS_SECRET_ACCESS_KEY
+    - AWS_REGION
+  command: apex deploy --dry-run

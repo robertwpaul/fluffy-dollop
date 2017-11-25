@@ -1,1 +1,3 @@
-{}
+{
+  "handler": "echo.handle"
+}

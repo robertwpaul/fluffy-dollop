@@ -10,7 +10,7 @@ def test_when_the_name_is_supplied():
         }
     }
     response = echo.handle(event, {})
-    assert(parse_body(response['body'])['message'] == 'Hello robert')
+    assert(parse_body(response['body'])['message'] == 'Hi robert!')
 
 
 def test_when_the_name_is_not_supplied():
@@ -18,7 +18,7 @@ def test_when_the_name_is_not_supplied():
         'queryStringParameters': None
     }
     response = echo.handle(event, {})
-    assert (parse_body(response['body'])['message'] == 'Hello there')
+    assert (parse_body(response['body'])['message'] == 'Hi there!')
 
 
 def parse_body(body):

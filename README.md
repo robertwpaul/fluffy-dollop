@@ -122,13 +122,28 @@ and role the lambdas run under:
 }
 ```
 
-Then run `make deploy` and you'll see something like:
+Then run `make deploy-test` and you'll see something like:
 
-```bash
+```
    • config unchanged          env= function=echo
    • updating function         env= function=echo
-   • updated alias current     env= function=echo version=4
-   • function updated          env= function=echo name=echo version=4
+   • updated alias test        env= function=echo version=8
+   • function updated          env= function=echo name=echo version=8
+```
+
+Test your lambda function, and if it passes, promote to production:
+
+```bash
+$ make deploy-prod
+```
+
+The code hasn't changed, so the only thing that happens is the `prod` alias
+is applied to the latest version of the code:
+
+```
+   • config unchanged          env= function=echo
+   • code unchanged            env= function=echo
+   • updated alias prod        env= function=echo version=8
 ```
 
 ### Links

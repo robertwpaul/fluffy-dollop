@@ -6,7 +6,6 @@
   "runtime": "python2.7",
   "memory": 1024,
   "hooks": {
-    "build": "cp -r ../../lib .",
-    "clean": "rm -rf lib"
+    "build": "cp -r ../../lib ."
   }
 }

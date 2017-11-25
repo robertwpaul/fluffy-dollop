@@ -1,0 +1,3 @@
+test:
+  build: .
+  command: py.test --pep8 --flakes

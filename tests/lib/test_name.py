@@ -1,4 +1,4 @@
-from lib import name
+import name
 
 
 def test_name_supplied():

@@ -1,12 +1,12 @@
 import json
 
-from lib import name
+import name
 
 
 def handle(event, context):
     supplied_name = name_from_request(event)
     message_name = name.display_name(supplied_name)
-    message = 'Hi {}!'.format(message_name)
+    message = 'Guten tag {}!'.format(message_name)
     return {
         'statusCode': 200,
         'body': response_body(message)

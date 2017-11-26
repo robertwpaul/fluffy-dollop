@@ -146,6 +146,55 @@ is applied to the latest version of the code:
    • updated alias prod        env= function=echo version=8
 ```
 
+### Build locally
+
+Lambdas are built as zip files and deployed to AWS. You can build the zip locally if
+you install Apex and run the [build command](http://apex.run/#building-functions) passing the name of the function to build:
+
+```bash
+$ apex build echo > /tmp/echo.zip
+```
+
+However, to bundle the libraries in we move stuff around and pollute the function
+directory, so to prevent that you can build it in the Docker container.
+
+First, build the container
+
+```bash
+$ docker build .
+Sending build context to Docker daemon  250.4kB
+Step 1/8 : FROM python:2.7-alpine
+ ---> 53bf0a99b6d0
+Step 2/8 : MAINTAINER Robert Paul
+ ---> Using cache
+ ---> 38410f7a19d5
+Step 3/8 : WORKDIR /usr/src/app
+ ---> Using cache
+ ---> 3be0998faa12
+Step 4/8 : RUN apk add --no-cache curl
+ ---> Using cache
+ ---> 58d6986f9e2e
+Step 5/8 : RUN curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sh
+ ---> Using cache
+ ---> 6db48e101e8b
+Step 6/8 : COPY requirements.txt /usr/src/app/
+ ---> Using cache
+ ---> 6aac5b21d0e7
+Step 7/8 : RUN pip install --no-cache-dir -r requirements.txt
+ ---> Using cache
+ ---> 7b12a12dbf0b
+Step 8/8 : COPY . /usr/src/app
+ ---> aef855d32dfe
+Successfully built aef855d32dfe
+```
+
+The last line of the output will contain the image name. Run the build command in a
+container running that image:
+
+```bash
+$ docker run aef855d32dfe apex build echo > /tmp/echo.zip
+```
+
 ### Links
 
  - [Apex website](http://apex.run/)

@@ -1,6 +1,6 @@
 ## Fluffy Dollop
 
-[![Build Status](https://travis-ci.org/robertwpaul/fluffy-dollop.svg?branch=fix-tests)](https://travis-ci.org/robertwpaul/fluffy-dollop)
+[![Build Status](https://travis-ci.org/robertwpaul/fluffy-dollop.svg?branch=master)](https://travis-ci.org/robertwpaul/fluffy-dollop)
 
 The fluffiest of dollops
 

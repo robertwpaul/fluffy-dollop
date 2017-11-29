@@ -2,12 +2,12 @@ import name
 
 
 def test_name_supplied():
-    assert(name.display_name('robert') == 'robert')
+    assert(name.display('robert') == 'robert')
 
 
 def test_name_empty():
-    assert(name.display_name('') == 'there')
+    assert(name.display('') == 'there')
 
 
 def test_name_missing():
-    assert (name.display_name(None) == 'there')
+    assert (name.display(None) == 'there')

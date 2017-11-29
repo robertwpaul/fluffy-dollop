@@ -1,5 +1,7 @@
 ## Fluffy Dollop
 
+[![Build Status](https://travis-ci.org/robertwpaul/fluffy-dollop.svg?branch=fix-tests)](https://travis-ci.org/robertwpaul/fluffy-dollop)
+
 The fluffiest of dollops
 
 ### Testing

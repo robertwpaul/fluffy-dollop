@@ -1,4 +1,2 @@
-def display_name(name):
-    if not name:
-        return 'there'
-    return name
+def display(name=None):
+  return 'there' if (name is None) else name
